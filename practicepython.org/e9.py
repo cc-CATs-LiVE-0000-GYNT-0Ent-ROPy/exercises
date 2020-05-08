@@ -12,7 +12,7 @@ def main():
   counter=0
   while True:
     number = random.randint(1,9)
-    usern = input("Whats your number? ")
+    usern = input("Whats your number of 1-9? ")
     if usern == "exit":
       break
     else:
