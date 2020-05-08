@@ -4,14 +4,17 @@ Create a program that asks the user for a number and then prints out a list of a
 For example, 13 is a divisor of 26 because 26 / 13 has no remainder.)
 '''
 
-def main():
-
-  number = int(input('Whats your number? '))
-  print("divisors of {} are:".format(number))
+def divisors(number):
+  out = []
   for i in range(2, number):
     if number % i == 0:
-      print(i)
+      out.append(i)
+  return(out)
 
+def main():
+  number = int(input('Whats your number? '))
+  print("divisors of {} are:".format(number))
+  print(divisors(number))
 
 if __name__ == '__main__':
   main()
