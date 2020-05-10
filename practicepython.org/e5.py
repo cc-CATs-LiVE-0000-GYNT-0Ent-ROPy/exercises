@@ -11,26 +11,29 @@ Extras:
 
 import random
 
+def common1(a, b):
+  return(list(set([i for i in a if i in b])))
 
 def common(a, b):
   out = []
   for i in a:
     if i in b:
-      if i in out:
-        pass
-      else:
+      if i not in out:
         out.append(i)
   return(out)
 
 def main():
-  a = sorted([random.randint(1, 99) for i in range(random.randint(1, 44))])
-  b = [random.randint(1, 99) for i in range(random.randint(1, 44))]
+  a = sorted([random.randint(1, 99) for i in range(random.randint(1, 99))])
+  b = [random.randint(1, 99) for i in range(random.randint(1, 99))]
   b.sort()
   print("list a {} ".format(a))
   print("list b {} ".format(b))
 
   out = common(a, b)
+  out1 = common1(a, b)
+
   print("out {} ".format(out))
+  print("out1 {} ".format(out1))
 
 
 if __name__ == '__main__':
