@@ -18,30 +18,33 @@ Until the user guesses the number.
 import random
 
 def cowsandbulls(c,u):
-  print(''.join(c), "\n", ''.join(u), "\n")
+  print("\n ", ''.join(c), "\n", ''.join(u), "\n")
   cow = bull = 0
-  for i,char in enumerate(u):
-    if char in c:
-      print(c, "\n", u, i, cow, "\n") 
-      if u[i] == c[i-cow]:
-        c.pop(i-cow)
+  for i,char in enumerate(u): 
+    if char in c: #check if users number are in random 
+      print(c, "\n", u, i, cow, bull, "\n") 
+      if u[i] == c[i-cow]: # check if numbers on same positions are the same - mean cow
+        c.pop(i-cow) # pop cow, to avoid that sibling (second same) will be counted as bull while first were matched as cow
         cow += 1
+        print("cow")
       else:
+        print("wejscie do bull, idx w c {}".format(c.index(char)))
         if char != u[c.index(char)+cow]:
           bull += 1
+          print("bull, idx w c {}".format(c.index(char)))
   return "cow-{} bull-{}".format(cow,bull)
 
 
 def main():
-  c0 = [chc for chc in str(random.randint(1000,9999))]
+  c0 = [chc for chc in str(random.randint(1000,9999))] #random for guessing as a list
   while True:
     print("Od nowa {}".format(''.join(c0)))
-    u0 = [chu for chu in input("Enter a number: ")]
-    if c0 == u0:
+    u0 = [chu for chu in input("Enter a number: ")] #users guess
+    if c0 == u0:  
       print("You won")
       break
     else:
-      print(cowsandbulls(c0,u0))
+      print(cowsandbulls(c0,u0)) # call function to count cows&bulls
 
 
 if __name__ == "__main__":
