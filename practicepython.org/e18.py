@@ -18,6 +18,8 @@ Until the user guesses the number.
 import random
 
 def cowsandbulls(c,u):
+  c = [chc for chc in c]
+  u = [chu for chu in u]
   print("\n ", ''.join(c), "\n", ''.join(u), "\n")
   cow = bull = 0
   for i,char in enumerate(u): 
@@ -28,18 +30,18 @@ def cowsandbulls(c,u):
         cow += 1
         print("cow")
       else:
-        print("wejscie do bull, idx w c {}".format(c.index(char)))
+        print("enter to bull, idx in c {}".format(c.index(char)))
         if char != u[c.index(char)+cow]:
           bull += 1
-          print("bull, idx w c {}".format(c.index(char)))
+          print("bull, idx in c {}".format(c.index(char)))
   return "cow-{} bull-{}".format(cow,bull)
 
 
 def main():
-  c0 = [chc for chc in str(random.randint(1000,9999))] #random for guessing as a list
+  c0 = str(random.randint(1000,9999)) #random for guessing as a list
   while True:
     print("Od nowa {}".format(''.join(c0)))
-    u0 = [chu for chu in input("Enter a number: ")] #users guess
+    u0 = input("Enter a number: ") #users guess
     if c0 == u0:  
       print("You won")
       break
