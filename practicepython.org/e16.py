@@ -11,12 +11,12 @@ import random
 import sys
 
 def passwordgen(x):
-  out = ''.join([chr(random.randint(33,127)) for i in range(x)])
-  return out
+  return ''.join([chr(random.randint(33,126)) for i in range(x)])
 
 def main():  
   x = int(sys.argv[1])
-  #x = int(input("Password complicity? "))
+  if not x:
+    x = int(input("Password complicity? "))
 
   if x<4:
     print(random.choice(['win', 'lose', 'draw', "qaz", "wsx"]))
