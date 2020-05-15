@@ -14,13 +14,14 @@ def passwordgen(x):
   return ''.join([chr(random.randint(33,126)) for i in range(x)])
 
 def main():  
-  x = int(sys.argv[1])
-  if not x:
+  if len(sys.argv) == 1:
     x = int(input("Password complicity? "))
+  else:
+    x = int(sys.argv[1])
 
-  if x<4:
+  if x < 4:
     print(random.choice(['win', 'lose', 'draw', "qaz", "wsx"]))
-  elif x<8:
+  elif x < 8:
     print(random.choice(['win', 'lose', 'draw', "qaz", "wsx"])+random.choice(['win', 'lose', 'draw', "qaz", "wsx"]) )
   else:
     print(passwordgen(x))
