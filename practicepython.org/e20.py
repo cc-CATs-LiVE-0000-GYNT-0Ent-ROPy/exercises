@@ -13,10 +13,11 @@ def binarysearch(n, l):
       return "wynik: {} ".format(n)
     elif n > mid:
       L = idx + 1
-      print("{}-{} >>> {}-{}".format(L,l[L],R,l[R]))
+      #print("{}-{} >>> {}-{}".format(L,l[L],R,l[R])) 
+      #may cause error - index overflow 
     else:
       R = idx - 1
-      print("{}-{} <<< {}-{}".format(L,l[L],R,l[R]))
+      #print("{}-{} <<< {}-{}".format(L,l[L],R,l[R]))
 
   return "brak"
 
