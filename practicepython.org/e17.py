@@ -6,17 +6,17 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def scraper(url):
+def scraper(url,level):
   resp = requests.get(url)
   soup = BeautifulSoup(resp.text, 'html.parser')
-  out = soup.find_all('h2')
+  out = soup.find_all(level)
   count=1
   for i in out:
     print("{} {}".format(count,i))
     count+=1
-  return ""
+  return out
 
 if __name__ == "__main__":
   url = "https://www.nytimes.com"
-  print(scraper(url))
+  print(scraper(url, 'h2'))
  
