@@ -2,16 +2,20 @@ import sys
 
 
 def row(n):
-  out1 = ' '.join(["---" for i in range(n)])
-  out2 = ' '.join(["|  " for i in range(n)])
-  print(" ", out1, "\n", out2, "|")
+  out1 = " "
+  out2 = ""
+  for i in range(n):
+    out1 += "--- "
+    out2 += "|   "
+  print("{}\n{}| ".format(out1, out2))
 
 
 def board(n):
+  out1 = " "
   for i in range(n):
     row(n)
-  out1 = ' '.join(["---" for i in range(n)])
-  print(" ", out1)
+    out1 += "--- "
+  print(out1)
   return ""
 
 
