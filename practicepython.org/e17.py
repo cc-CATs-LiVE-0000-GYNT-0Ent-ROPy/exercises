@@ -18,5 +18,6 @@ def scraper(url,level):
 
 if __name__ == "__main__":
   url = "https://www.nytimes.com"
+  tag = "h3"
   print(scraper(url, 'h2'))
  
