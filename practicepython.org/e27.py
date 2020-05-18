@@ -3,29 +3,41 @@ import e26
 
 def move(game):
   win1 = "0"
-  while True:
+  turn = 0
+  while (win1 == "0" and turn <= 9):
     if win1 == "0":
+      turn += 1
       p = input("P1 move: ")
-      game[int(p[0])][int(p[2])] = "X"
+      slot = game[int(p[0])][int(p[2])]
+      if slot == '0':
+        game[int(p[0])][int(p[2])] = "X"
+      else:
+        print("occupied - you lost turn")
       win1 = e26.tictactoe(game)
-    if win1 == "0": 
+    if win1 == "0":
+      turn += 1 
       #print(game)
       p = input("P2 move: ")
-      game[int(p[0])][int(p[2])] = "O"
+      slot = game[int(p[0])][int(p[2])]
+      if slot == "0":
+        game[int(p[0])][int(p[2])] = "O"
+      else:
+        print("occupied - you lost turn")
       win1 = e26.tictactoe(game)
-  #return "The winner is: {} ".format(win1)
-
-
+  return "The winner is: {} ".format(win1)
 
 def drawboard(game):
   pass
 
 
 if __name__ == "__main__":
-  game0 = [[0, 0, 0],
+  game3 = [[0, 0, 0],
           [0, 0, 0],
           [0, 0, 0]]
-  game = np.array(game0, str)
+  
+  game2 = [[0, 0],
+          [0, 0]]
+  game = np.array(game3, str)
   print(move(game))
 
 
