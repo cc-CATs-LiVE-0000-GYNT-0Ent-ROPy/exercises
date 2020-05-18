@@ -21,14 +21,9 @@ def diagonal(game):
   for i in range(size-1):
     if game[i][i] == game[i+1][i+1]:
       out += 1
-      #print(out)
-    #else:
-      #print(out)
     if out == size - 1:
       res = game[i][i]
       break
-    #else:
-      #res = 0
   return res
 
 def line(game):
@@ -40,14 +35,9 @@ def line(game):
     for j in range(size -1):
       if game[i][j] == game[i][j+1]:
         out += 1
-        #print(out)
-      #else:
-        #print(out)
     if out == size - 1:
       res = game[i][j]
       break
-    #else:
-      #res = 0
     out = 0
   return res
 
@@ -56,7 +46,7 @@ if __name__ == "__main__":
            [2, 1, 0],
            [2, 1, 1]]
 
-  game  = [[2, 2, 2, 2],
+  game  = [[1, 2, 2, 2],
            [1, 1, 2, 1],
            [2, 2, 1, 1],
            [2, 1, 0, 1]]
