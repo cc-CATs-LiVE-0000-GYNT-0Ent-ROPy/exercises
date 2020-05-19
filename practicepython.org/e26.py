@@ -1,14 +1,15 @@
 import numpy as np
 
 def tictactoe(game):
+  print(np.array(game))
   win1 = '0'
   if win1 == '0':
     win1 = diagonal(game)
   if win1 == '0':
     win1 = line(game)
-    print("returned {} {} {}".format(win1, type(win1), win1 == '0'))
+    #print("returned {} {} {}".format(win1, type(win1), win1 == '0'))
   if win1 == '0':
-    print("diagonal rot")
+    #print("diagonal rot")
     win1 = diagonal(np.rot90(game))
   if win1 == '0':
     win1 = line(np.rot90(game))
@@ -18,11 +19,11 @@ def diagonal(game):
   out = 0
   res = '0'
   size = len(game[1])
-  print(np.array(game))
+  #print(np.array(game))
   for i in range(size-1):
     if game[i][i] == game[i+1][i+1] and game[i][i] != '0':
       out += 1
-      print("di {} {} {}".format(i, game[i][i],out))
+      #print("di {} {} {}".format(i, game[i][i],out))
     if out == size - 1:
       res = str(game[i][i])
       break
@@ -33,18 +34,18 @@ def line(game):
   res = '0'
   size = len(game[1])
   #print(np.array(game))
-  print(game,"\n")
+  #print(game,"\n")
   for i in range(size):
     for j in range(size -1):
       if game[i][j] == game[i][j+1] and game[i][j] != '0':
         out += 1
-        print("li {} {} {}".format(i, game[i][j],out))
+        #print("li {} {} {}".format(i, game[i][j],out))
     if out == size - 1:
       res = str(game[i][j])
-      print("res {}".format(res))
+      #print("res {}".format(res))
       break
     out = 0
-    print("next")
+    #print("next")
   return res
 
 if __name__ == "__main__":
